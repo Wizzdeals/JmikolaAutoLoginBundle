@@ -6,8 +6,36 @@ login functionality in email and newsletter links.
 
 ## Compatibility
 
-This bundle's master branch maintains compatibility with Symfony2's master
-branch. There is no alternate branch for 2.0.x compatilibity.
+THIS BRANCH IS FOR 2.0 backward compatibility
+
+you have to configure your deps files :
+```
+[AutoLoginBundle]
+    git=git://github.com/Alkpone/JmikolaAutoLoginBundle.git
+	target=bundles/Jmikola/AutoLoginBundle
+```
+
+autoload.php 
+
+```php 
+
+    'Jmikola\AutoLoginBundle' => __DIR__.'/../vendor/bundles',
+	'Jmikola\AutoLogin' => __DIR__.'/../vendor/bundles/Jmikola/src'
+
+```
+and your kernel
+
+```
+     new Jmikola\AutoLoginBundle\JmikolaAutoLoginBundle(),
+```
+
+you need to configure your security.yml as follow
+
+```yml
+    factories:
+          - "%kernel.root_dir%/../vendor/bundles/Jmikola/AutoLoginBundle/Resources/config/security_factories.xml"
+```
+
 
 ## Configuration
 
